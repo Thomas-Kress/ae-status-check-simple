@@ -1,11 +1,12 @@
 
 # ae-status-check-simple   
-
-## content   
+   
 A simple status check of an Automic system. The tool is command line based. The output is not stored and the output is presented on the console. 
 
-**Other output formats are planed**   
-**Storage is planed**
+**Other output formats in pipeline**
+
+## Requirements     
+node (version 8.15.0)
 
 ## Installation   
 * change directory into the ae-upstatus-check-simple folder.
