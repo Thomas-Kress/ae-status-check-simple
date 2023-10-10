@@ -34,7 +34,7 @@ function status() {
   .then (response => {
   
     console.log(response.status);
-
+    
     const dateTime = format(new Date(), 'dd.MM.yyyy HH:mm:SS');
 
     console.log("[" + dateTime + "] -- Status check: System Name " + name);
@@ -50,6 +50,17 @@ function status() {
   })
   .catch(error => {
     console.log(error)
+  
+    /*
+      With timer == 0 no periodical repeat is set
+      In this case the app will end with rc 100 in case of Rest error
+      
+    */
+    
+    if(timer == 0){
+      process.exit(100);
+    }
+  
   })
 
 }
@@ -61,10 +72,10 @@ console.log('timer set to ' + timer + ' minutes');
 if( timer > 0) {
 
 
-const id = setInterval(() => {
-  
-  status();
+  const id = setInterval(() => {
+   status();
 }, 1000 * 60 * timer);
+
 
 }
 
